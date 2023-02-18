@@ -6,30 +6,28 @@
 }
 </style>
 <template>
-  <div class="container">
-    <div class="section">
-      <h1 class="title">Photo Gallery</h1>
-      <h4>{{ numberOfPhotos }} photos</h4>
-      <button @click="fetchPhotoGallery">Fetch Data</button>
+  <BaseViewer
+    title="Photo Gallery"
+    itemType="photos"
+    v-model:item-list="photoGallery"
+  >
+    <template v-slot:metrics>
+      <div>{{ numberOfPhotos }} total photos</div>
+    </template>
+    <template v-slot:items>
       <ul class="photo-gallery-list">
         <li v-for="photo in photoGallery" :key="`photo-id-${photo.id}`">
           <img :src="photo.thumbnailUrl" :alt="photo.title" />
         </li>
       </ul>
-    </div>
-  </div>
+    </template>
+  </BaseViewer>
 </template>
 <script setup>
 import { ref, computed } from "vue";
-const photoGallery = ref([]);
+import BaseViewer from "./BaseViewer.vue";
 
-const fetchPhotoGallery = () => {
-  fetch("https://jsonplaceholder.typicode.com/photos/").then((response) => {
-    response.json().then((res) => {
-      photoGallery.value = res;
-    });
-  });
-};
+const photoGallery = ref([]);
 
 const numberOfPhotos = computed(() => {
   return photoGallery.value.length;
