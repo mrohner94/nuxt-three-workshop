@@ -32,17 +32,29 @@ const props = defineProps({
 
 const emit = defineEmits(["update:itemList"]);
 
-const fetchItemList = () => {
-  fetch(`https://jsonplaceholder.typicode.com/${itemType}/`).then(
-    (response) => {
-      response.json().then((res) => {
-        // itemList.value = res;
-        emit("update:itemList", res);
-      });
-    }
-  );
-};
-onMounted(() => {
-  fetchItemList();
+// const fetchItemList = () => {
+//   fetch(`https://jsonplaceholder.typicode.com/${itemType}/`).then(
+//     (response) => {
+//       response.json().then((res) => {
+//         // itemList.value = res;
+//         emit("update:itemList", res);
+//       });
+//     }
+//   );
+// };
+// onMounted(() => {
+//   fetchItemList();
+// });
+
+// useAsyncData(`${itemType}Query`, () => {
+//   $fetch(`https://jsonplaceholder.typicode.com/${itemType}/`).then(
+//     (response) => {
+//       emit("update:itemList", response);
+//     }
+//   );
+// });
+
+useFetch(`https://jsonplaceholder.typicode.com/${itemType}/`, () => {
+  emit("update:itemList", response);
 });
 </script>
