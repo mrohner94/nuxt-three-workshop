@@ -6,11 +6,7 @@
 }
 </style>
 <template>
-  <BaseViewer
-    title="Photo Gallery"
-    itemType="photos"
-    v-model:item-list="photoGallery"
-  >
+  <BaseViewer title="Photo Gallery" v-model:item-list="photoGallery">
     <template v-slot:metrics>
       <div>{{ numberOfPhotos }} total photos</div>
     </template>

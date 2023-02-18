@@ -29,6 +29,9 @@
             <NuxtLink to="/display/todos" class="navbar-item">
               To-Do's
             </NuxtLink>
+            <NuxtLink to="/display/todos?completed=true" class="navbar-item">
+              Completed To-Do's
+            </NuxtLink>
             <NuxtLink to="/display/photos" class="navbar-item">
               Photos
             </NuxtLink>

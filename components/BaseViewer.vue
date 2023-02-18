@@ -9,12 +9,16 @@
   <div class="section">
     <slot name="hero" />
     <h1 class="title">{{ title }}</h1>
-    <button @click="fetchItemList">Fetch Data</button>
     <slot name="metrics" />
     <slot name="items" :itemList="itemList" />
   </div>
 </template>
 <script setup>
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const itemType = route.path.split("/")[2];
+
 const props = defineProps({
   itemList: {
     type: Array,
@@ -24,16 +28,12 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  itemType: {
-    type: String,
-    required: true,
-  },
 });
 
 const emit = defineEmits(["update:itemList"]);
 
 const fetchItemList = () => {
-  fetch(`https://jsonplaceholder.typicode.com/${props.itemType}/`).then(
+  fetch(`https://jsonplaceholder.typicode.com/${itemType}/`).then(
     (response) => {
       response.json().then((res) => {
         // itemList.value = res;
@@ -42,4 +42,7 @@ const fetchItemList = () => {
     }
   );
 };
+onMounted(() => {
+  fetchItemList();
+});
 </script>
