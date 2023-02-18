@@ -2,6 +2,8 @@
 @import "./node_modules/bulma/bulma.sass";
 </style>
 <template>
-  <h1>This is home</h1>
+  <NuxtLayout>
+    <h1>This is home</h1>
+  </NuxtLayout>
 </template>
 <script setup></script>
