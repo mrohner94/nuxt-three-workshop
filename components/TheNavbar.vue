@@ -19,10 +19,10 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start"></div>
 
-      <div class="navbar-end">
+      <div class="navbar-end mr-6">
         <NuxtLink to="/" class="navbar-item"> Home </NuxtLink>
 
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-item has-dropdown is-hoverable mx-6">
           <NuxtLink to="/display" class="navbar-item"> Display </NuxtLink>
 
           <div class="navbar-dropdown">
