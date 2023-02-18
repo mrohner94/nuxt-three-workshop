@@ -35,6 +35,9 @@
             <NuxtLink to="/display/photos" class="navbar-item">
               Photos
             </NuxtLink>
+            <NuxtLink to="/display/photos?even=true" class="navbar-item">
+              Even Photos
+            </NuxtLink>
             <hr class="navbar-divider" />
             <a class="navbar-item"> Report an issue </a>
           </div>
