@@ -21,15 +21,17 @@
 
       <div class="navbar-end">
         <NuxtLink to="/" class="navbar-item"> Home </NuxtLink>
-        <NuxtLink to="/display" class="navbar-item"> Display </NuxtLink>
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> More </a>
+          <NuxtLink to="/display" class="navbar-item"> Display </NuxtLink>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item"> About </a>
-            <a class="navbar-item"> Jobs </a>
-            <a class="navbar-item"> Contact </a>
+            <NuxtLink to="/display/todos" class="navbar-item">
+              To-Do's
+            </NuxtLink>
+            <NuxtLink to="/display/photos" class="navbar-item">
+              Photos
+            </NuxtLink>
             <hr class="navbar-divider" />
             <a class="navbar-item"> Report an issue </a>
           </div>
